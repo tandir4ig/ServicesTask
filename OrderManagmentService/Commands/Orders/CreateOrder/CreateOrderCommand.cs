@@ -1,6 +1,9 @@
-﻿namespace ProductOrderService.Models
+﻿using MediatR;
+using ProductOrderService.Models;
+
+namespace OrderManagmentService.Commands.Orders.CreateOrder
 {
-    public class Order
+    public class CreateOrderCommand : IRequest<CreateOrderDto>
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
@@ -9,6 +12,6 @@
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set; }
         public decimal TotalCost { get; set; }
-        public required List<OrderDetail> OrderDetails { get; set; }
+        public required List<Order> OrderDetails { get; set; }
     }
 }

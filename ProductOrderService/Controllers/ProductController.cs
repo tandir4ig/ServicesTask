@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using ProductOrderService.Models;
 using ProductOrderService.Queries.Products.GetAllProducts;
 using ProductOrderService.Queries.Products.GetProductById;
 
@@ -18,9 +17,9 @@ namespace ProductOrderService.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<GetAllProductsDto>> GetProducts([FromQuery] GetAllProductsQuery query)
+        public async Task<IEnumerable<GetAllProductsDto>> GetProducts()
         {
-            return await _mediator.Send(query);
+            return await _mediator.Send(new GetAllProductsQuery());
         }
 
         [HttpGet("{id}")]
@@ -32,6 +31,7 @@ namespace ProductOrderService.Controllers
             {
                 return NotFound();
             }
+
             return Ok(productDto);
         }
     }

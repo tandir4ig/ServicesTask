@@ -1,6 +1,8 @@
-﻿namespace ProductOrderService.Queries.Orders.GetAllOrders
+﻿using MediatR;
+
+namespace ProductOrderService.Queries.Orders.GetAllOrders
 {
-    public class GetAllOrdersQuery
+    public class GetAllOrdersQuery : IRequest<IEnumerable<GetAllOrdersDto>>
     {
     }
 }

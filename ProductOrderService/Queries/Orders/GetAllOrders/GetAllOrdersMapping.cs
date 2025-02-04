@@ -1,6 +1,14 @@
-﻿namespace ProductOrderService.Queries.Orders.GetAllOrders
+﻿using AutoMapper;
+using ProductOrderService.Models;
+
+namespace ProductOrderService.Queries.Orders.GetAllOrders
 {
-    public class GetAllOrdersMapping
+    public class GetAllOrdersMapping : Profile
     {
+        public GetAllOrdersMapping() 
+        {
+            CreateMap<Order, GetAllOrdersDto>();
+            CreateMap<OrderDetail, OrderDetailModel>();
+        }
     }
 }

@@ -1,6 +1,14 @@
-﻿namespace ProductOrderService.Queries.Orders.GetOrderById
+﻿using AutoMapper;
+using ProductOrderService.Models;
+
+namespace ProductOrderService.Queries.Orders.GetOrderById
 {
-    public class GetOrderByIdMapping
+    public class GetOrderByIdMapping : Profile
     {
+        public GetOrderByIdMapping() 
+        {
+            CreateMap<Order, GetOrderByIdDto>();
+            CreateMap<OrderDetail, OrderDetailModel>();
+        }
     }
 }
